@@ -30,14 +30,14 @@ export const TraderHeader = ({ trader }: TraderHeaderProps) => {
           <div className="space-y-2">
             <p className="text-muted-foreground text-sm">
               {language === 'ru' 
-                ? `📥 Копируем сделки трейдера ${telegramUsername}.`
-                : `📥 We copy trades from ${telegramUsername}.`
+                ? <>📥 Копируем сделки трейдера <span className="font-bold text-foreground">{telegramUsername}</span></>
+                : <>📥 We copy trades from <span className="font-bold text-foreground">{telegramUsername}</span></>
               }
             </p>
             <p className="text-muted-foreground text-sm">
               {language === 'ru' 
-                ? '📊 Открываем их на бирже и прозрачно фиксируем результат — 🔒 без правок, 🗑️ удаления и ⏱️ «задним числом».'
-                : '📊 We open them on the exchange and transparently record the result — 🔒 no edits, 🗑️ deletions, or ⏱️ "backdating".'
+                ? '📊 Открываем их на бирже и прозрачно фиксируем результат — 🔒 без правок, удаления и «задним числом».'
+                : '📊 We open them on the exchange and transparently record the result — 🔒 no edits, deletions, or "backdating".'
               }
             </p>
           </div>
