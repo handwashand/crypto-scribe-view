@@ -1,7 +1,5 @@
 import { Trader } from '@/types/trader';
-import { ExternalLink, Calendar, TrendingUp, TrendingDown, Activity, Target, Percent } from 'lucide-react';
-import { format } from 'date-fns';
-import { enUS, ru } from 'date-fns/locale';
+import { ExternalLink, TrendingUp, TrendingDown, Target } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
 
@@ -12,41 +10,41 @@ interface TraderHeaderProps {
 export const TraderHeader = ({ trader }: TraderHeaderProps) => {
   const isProfit = trader.totalPnlPercent >= 0;
   const { t, language } = useLanguage();
-  const dateLocale = language === 'ru' ? ru : enUS;
+
+  // Extract username from telegram link or use trader name
+  const telegramUsername = trader.telegramLink.includes('t.me/') 
+    ? '@' + trader.telegramLink.split('t.me/')[1]
+    : '@' + trader.name.replace(/\s+/g, '');
 
   return (
     <div className="animate-fade-in">
       {/* Trader Info */}
       <div className="glass-card p-6 md:p-8 mb-6">
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-          <div className="flex items-start gap-4">
-            <div>
-              <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-1">
+        <div className="flex flex-col gap-4">
+          <div className="flex items-start justify-between">
+            <div className="flex items-center gap-3">
+              <h1 className="text-lg md:text-3xl font-bold text-foreground">
                 {trader.name}
               </h1>
               <a
                 href={trader.telegramLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 bg-[hsl(199,89%,48%)] hover:bg-[hsl(199,89%,42%)] text-white px-3 py-1.5 rounded-lg transition-colors font-medium text-sm"
+                className="inline-flex items-center gap-1.5 bg-[hsl(199,89%,48%)] hover:bg-[hsl(199,89%,42%)] text-white px-2 py-1 md:px-3 md:py-1.5 rounded-lg transition-colors font-medium text-xs md:text-sm"
               >
-                <ExternalLink className="w-3.5 h-3.5" />
-                {t('header.viewInTelegram')}
+                <ExternalLink className="w-3 h-3 md:w-3.5 md:h-3.5" />
+                <span className="hidden md:inline">{t('header.viewInTelegram')}</span>
+                <span className="md:hidden">Telegram</span>
               </a>
-              {trader.description && (
-                <p className="text-muted-foreground mt-2 max-w-lg text-sm">
-                  {trader.description}
-                </p>
-              )}
             </div>
-          </div>
-          <div className="flex items-center gap-4">
             <LanguageSwitcher />
-            <div className="flex items-center gap-2 text-muted-foreground text-sm">
-              <Calendar className="w-4 h-4" />
-              <span>{t('header.trackingSince')} {format(new Date(trader.trackingStartDate), 'd MMMM yyyy', { locale: dateLocale })}</span>
-            </div>
           </div>
+          <p className="text-muted-foreground max-w-2xl text-sm">
+            {language === 'ru' 
+              ? `Копируем сделки трейдера ${telegramUsername}. Открываем их на бирже и прозрачно фиксируем результат — без правок, удаления и «задним числом».`
+              : `We copy trades from ${telegramUsername}. We open them on the exchange and transparently record the result — no edits, deletions, or "backdating".`
+            }
+          </p>
         </div>
       </div>
 
