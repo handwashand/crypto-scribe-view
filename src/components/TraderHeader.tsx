@@ -54,38 +54,34 @@ export const TraderHeader = ({ trader }: TraderHeaderProps) => {
       <div className="grid grid-cols-2 gap-2 md:gap-4">
         {/* P&L Card (% + USDT) */}
         <div className={`metric-card p-3 md:p-4 ${isProfit ? 'profit-bg' : 'loss-bg'}`}>
-          <div className="flex items-center gap-1.5 mb-2">
+          <div className="flex items-center gap-1.5 mb-1">
             {isProfit ? (
-              <TrendingUp className="w-4 h-4 text-profit" />
+              <TrendingUp className="w-3.5 h-3.5 text-profit" />
             ) : (
-              <TrendingDown className="w-4 h-4 text-loss" />
+              <TrendingDown className="w-3.5 h-3.5 text-loss" />
             )}
-            <span className="text-xs text-muted-foreground uppercase tracking-wide">P&L</span>
+            <span className="text-[10px] text-muted-foreground uppercase tracking-wide">P&L</span>
           </div>
-          <div className="flex items-baseline gap-2 md:gap-3">
-            <p className={`text-xl md:text-2xl font-bold font-mono ${isProfit ? 'text-profit' : 'text-loss'}`}>
-              {isProfit ? '+' : ''}{trader.totalPnlPercent.toFixed(1)}%
-            </p>
-            <p className={`text-sm md:text-lg font-medium font-mono ${isProfit ? 'text-profit/80' : 'text-loss/80'}`}>
-              {isProfit ? '+' : ''}{trader.totalPnlUsdt >= 1000 ? `${(trader.totalPnlUsdt / 1000).toFixed(1)}k` : trader.totalPnlUsdt.toFixed(0)} USDT
-            </p>
-          </div>
+          <p className={`text-lg md:text-2xl font-bold font-mono ${isProfit ? 'text-profit' : 'text-loss'}`}>
+            {isProfit ? '+' : ''}{trader.totalPnlPercent.toFixed(1)}%
+          </p>
+          <p className={`text-xs md:text-sm font-medium font-mono ${isProfit ? 'text-profit/80' : 'text-loss/80'}`}>
+            {isProfit ? '+' : ''}{trader.totalPnlUsdt >= 1000 ? `${(trader.totalPnlUsdt / 1000).toFixed(1)}k` : trader.totalPnlUsdt.toFixed(0)} USDT
+          </p>
         </div>
 
         {/* Stats Card (Total Trades + Win Rate) */}
         <div className="metric-card p-3 md:p-4">
-          <div className="flex items-center gap-1.5 mb-2">
-            <Target className="w-4 h-4 text-muted-foreground" />
-            <span className="text-xs text-muted-foreground uppercase tracking-wide">{t('header.totalTrades')}</span>
+          <div className="flex items-center gap-1.5 mb-1">
+            <Target className="w-3.5 h-3.5 text-muted-foreground" />
+            <span className="text-[10px] text-muted-foreground uppercase tracking-wide">{t('header.totalTrades')}</span>
           </div>
-          <div className="flex items-baseline gap-2 md:gap-3">
-            <p className="text-xl md:text-2xl font-bold font-mono text-foreground">
-              {trader.totalTrades}
-            </p>
-            <p className="text-sm md:text-lg font-medium font-mono text-muted-foreground">
-              {trader.winRate}% {language === 'ru' ? 'винрейт' : 'win'}
-            </p>
-          </div>
+          <p className="text-lg md:text-2xl font-bold font-mono text-foreground">
+            {trader.totalTrades}
+          </p>
+          <p className="text-xs md:text-sm font-medium font-mono text-muted-foreground">
+            {trader.winRate}% {language === 'ru' ? 'винрейт' : 'win'}
+          </p>
         </div>
       </div>
     </div>
