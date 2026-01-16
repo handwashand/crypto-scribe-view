@@ -21,30 +21,35 @@ export const TraderHeader = ({ trader }: TraderHeaderProps) => {
       {/* Trader Info */}
       <div className="glass-card p-6 md:p-8 mb-6">
         <div className="flex flex-col gap-4">
-          <div className="flex items-start justify-between">
-            <div className="flex items-center gap-3">
-              <h1 className="text-lg md:text-3xl font-bold text-foreground">
-                {trader.name}
-              </h1>
-              <a
-                href={trader.telegramLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 bg-[hsl(199,89%,48%)] hover:bg-[hsl(199,89%,42%)] text-white px-2 py-1 md:px-3 md:py-1.5 rounded-lg transition-colors font-medium text-xs md:text-sm"
-              >
-                <ExternalLink className="w-3 h-3 md:w-3.5 md:h-3.5" />
-                <span className="hidden md:inline">{t('header.viewInTelegram')}</span>
-                <span className="md:hidden">Telegram</span>
-              </a>
-            </div>
+          <div className="flex items-center justify-between">
+            <h1 className="text-lg md:text-3xl font-bold text-foreground">
+              {trader.name}
+            </h1>
             <LanguageSwitcher />
           </div>
-          <p className="text-muted-foreground max-w-2xl text-sm">
-            {language === 'ru' 
-              ? `Копируем сделки трейдера ${telegramUsername}. Открываем их на бирже и прозрачно фиксируем результат — без правок, удаления и «задним числом».`
-              : `We copy trades from ${telegramUsername}. We open them on the exchange and transparently record the result — no edits, deletions, or "backdating".`
-            }
-          </p>
+          <div className="space-y-2">
+            <p className="text-muted-foreground text-sm">
+              {language === 'ru' 
+                ? `📥 Копируем сделки трейдера ${telegramUsername}.`
+                : `📥 We copy trades from ${telegramUsername}.`
+              }
+            </p>
+            <p className="text-muted-foreground text-sm">
+              {language === 'ru' 
+                ? '📊 Открываем их на бирже и прозрачно фиксируем результат — 🔒 без правок, 🗑️ удаления и ⏱️ «задним числом».'
+                : '📊 We open them on the exchange and transparently record the result — 🔒 no edits, 🗑️ deletions, or ⏱️ "backdating".'
+              }
+            </p>
+          </div>
+          <a
+            href={trader.telegramLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 bg-[hsl(199,89%,48%)] hover:bg-[hsl(199,89%,42%)] text-white px-3 py-2 rounded-lg transition-colors font-medium text-sm w-fit"
+          >
+            <ExternalLink className="w-4 h-4" />
+            {t('header.viewInTelegram')}
+          </a>
         </div>
       </div>
 
