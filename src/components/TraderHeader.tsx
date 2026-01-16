@@ -1,5 +1,5 @@
 import { Trader } from '@/types/trader';
-import { ExternalLink, TrendingUp, TrendingDown, Target } from 'lucide-react';
+import { ExternalLink, TrendingUp, TrendingDown, Target, Send } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
 
@@ -28,11 +28,10 @@ export const TraderHeader = ({ trader }: TraderHeaderProps) => {
             <LanguageSwitcher />
           </div>
           <div className="space-y-2">
-            <p className="text-muted-foreground text-sm">
-              {language === 'ru' 
-                ? `📥 Копируем сделки трейдера ${telegramUsername}.`
-                : `📥 We copy trades from ${telegramUsername}.`
-              }
+            <p className="text-foreground text-sm font-semibold flex items-center gap-1">
+              📥 {language === 'ru' ? 'Копируем сделки трейдера' : 'We copy trades from'}{' '}
+              <Send className="w-3.5 h-3.5 text-[hsl(199,89%,48%)]" />
+              {telegramUsername.replace('@', '')}
             </p>
             <p className="text-muted-foreground text-sm">
               {language === 'ru' 
