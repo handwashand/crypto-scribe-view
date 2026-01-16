@@ -45,7 +45,7 @@ export const TraderHeader = ({ trader }: TraderHeaderProps) => {
             href={trader.telegramLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 bg-[hsl(199,89%,48%)] hover:bg-[hsl(199,89%,42%)] text-white px-3 py-2 rounded-lg transition-colors font-medium text-sm w-fit"
+            className="inline-flex items-center justify-center gap-2 bg-[hsl(199,89%,48%)] hover:bg-[hsl(199,89%,42%)] text-white px-3 py-3 rounded-lg transition-colors font-medium text-sm w-full"
           >
             <ExternalLink className="w-4 h-4" />
             {t('header.viewInTelegram')}
