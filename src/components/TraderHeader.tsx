@@ -29,7 +29,7 @@ export const TraderHeader = ({ trader }: TraderHeaderProps) => {
                 <h1 className="text-sm md:text-2xl font-bold text-foreground">
                   PNL Mama
                 </h1>
-                <p className="text-xs md:text-sm text-muted-foreground italic">Mama knows which trades to pick.</p>
+                <p className="text-xs md:text-sm text-muted-foreground italic">Real signals. Real results.</p>
               </div>
             </div>
             <LanguageSwitcher />
@@ -37,14 +37,14 @@ export const TraderHeader = ({ trader }: TraderHeaderProps) => {
           <div className="space-y-2">
             <p className="text-muted-foreground text-sm">
               {language === 'ru' 
-                ? <>📥 Копируем сделки трейдера <span className="font-bold text-foreground">{telegramUsername}</span></>
-                : <>📥 We copy trades from <span className="font-bold text-foreground">{telegramUsername}</span></>
+                ? <>Мы отслеживаем каждую сделку от <span className="font-bold text-foreground">{telegramUsername}</span> и публикуем прозрачную P&L статистику.</>
+                : <>We track every trade from <span className="font-bold text-foreground">{telegramUsername}</span> and publish transparent P&L statistics.</>
               }
             </p>
             <p className="text-muted-foreground text-sm">
               {language === 'ru' 
-                ? '📊 Открываем их на бирже и прозрачно фиксируем результат — 🔒 без правок, удаления и «задним числом».'
-                : '📊 We open them on the exchange and transparently record the result — 🔒 no edits, deletions, or "backdating".'
+                ? '📊 Отслеживание на бирже · 🔒 Без правок. Никогда.'
+                : '📊 Exchange-based tracking · 🔒 No edits. Ever.'
               }
             </p>
           </div>
