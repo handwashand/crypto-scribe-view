@@ -24,12 +24,12 @@ export const TraderHeader = ({ trader }: TraderHeaderProps) => {
         <div className="flex flex-col gap-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img src={pnlMamaLogo} alt="PNL Mama" className="w-10 h-10 md:w-12 md:h-12 rounded-full" />
+              <img src={pnlMamaLogo} alt="PNL Mama" className="w-14 h-14 md:w-16 md:h-16 rounded-full" />
               <div>
-                <h1 className="text-lg md:text-3xl font-bold text-foreground">
+                <h1 className="text-sm md:text-2xl font-bold text-foreground">
                   PNL Mama
                 </h1>
-                <p className="text-[10px] md:text-xs text-muted-foreground italic">Mama knows which trades to pick.</p>
+                <p className="text-xs md:text-sm text-muted-foreground italic">Mama knows which trades to pick.</p>
               </div>
             </div>
             <LanguageSwitcher />
