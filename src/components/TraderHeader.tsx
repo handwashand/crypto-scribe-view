@@ -2,6 +2,7 @@ import { Trader } from '@/types/trader';
 import { ExternalLink, TrendingUp, TrendingDown, Target } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
+import pnlMamaLogo from '@/assets/pnl-mama-logo.png';
 
 interface TraderHeaderProps {
   trader: Trader;
@@ -18,6 +19,12 @@ export const TraderHeader = ({ trader }: TraderHeaderProps) => {
 
   return (
     <div className="animate-fade-in">
+      {/* Logo */}
+      <div className="flex flex-col items-center mb-6">
+        <img src={pnlMamaLogo} alt="PNL Mama" className="w-20 h-20 md:w-24 md:h-24 rounded-full" />
+        <p className="text-xs md:text-sm text-muted-foreground mt-2 italic">Mama knows which trades to pick.</p>
+      </div>
+
       {/* Trader Info */}
       <div className="glass-card p-6 md:p-8 mb-6">
         <div className="flex flex-col gap-4">
