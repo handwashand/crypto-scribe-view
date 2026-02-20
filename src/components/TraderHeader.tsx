@@ -27,7 +27,7 @@ export const TraderHeader = ({ trader }: TraderHeaderProps) => {
               <img src={pnlMamaLogo} alt="PNL Mama" className="w-10 h-10 md:w-12 md:h-12 rounded-full" />
               <div>
                 <h1 className="text-lg md:text-3xl font-bold text-foreground">
-                  {trader.name}
+                  PNL Mama
                 </h1>
                 <p className="text-[10px] md:text-xs text-muted-foreground italic">Mama knows which trades to pick.</p>
               </div>
