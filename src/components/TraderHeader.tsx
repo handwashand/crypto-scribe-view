@@ -24,7 +24,7 @@ export const TraderHeader = ({ trader }: TraderHeaderProps) => {
         <div className="flex flex-col gap-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img src={pnlMamaLogo} alt="PNL Mama" className="w-14 h-14 md:w-16 md:h-16 rounded-full" />
+              <img src={pnlMamaLogo} alt="PNL Mama" className="w-[72px] h-[72px] md:w-20 md:h-20 rounded-full" />
               <div>
                 <h1 className="text-sm md:text-2xl font-bold text-foreground">
                   PNL Mama
