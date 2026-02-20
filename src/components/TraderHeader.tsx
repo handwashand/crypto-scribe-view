@@ -19,19 +19,19 @@ export const TraderHeader = ({ trader }: TraderHeaderProps) => {
 
   return (
     <div className="animate-fade-in">
-      {/* Logo */}
-      <div className="flex flex-col items-center mb-6">
-        <img src={pnlMamaLogo} alt="PNL Mama" className="w-20 h-20 md:w-24 md:h-24 rounded-full" />
-        <p className="text-xs md:text-sm text-muted-foreground mt-2 italic">Mama knows which trades to pick.</p>
-      </div>
-
       {/* Trader Info */}
       <div className="glass-card p-6 md:p-8 mb-6">
         <div className="flex flex-col gap-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-lg md:text-3xl font-bold text-foreground">
-              {trader.name}
-            </h1>
+            <div className="flex items-center gap-3">
+              <img src={pnlMamaLogo} alt="PNL Mama" className="w-10 h-10 md:w-12 md:h-12 rounded-full" />
+              <div>
+                <h1 className="text-lg md:text-3xl font-bold text-foreground">
+                  {trader.name}
+                </h1>
+                <p className="text-[10px] md:text-xs text-muted-foreground italic">Mama knows which trades to pick.</p>
+              </div>
+            </div>
             <LanguageSwitcher />
           </div>
           <div className="space-y-2">
