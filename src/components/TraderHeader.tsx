@@ -34,6 +34,36 @@ export const TraderHeader = ({ trader }: TraderHeaderProps) => {
             </div>
             <LanguageSwitcher />
           </div>
+
+          {/* Trader Channel Info */}
+          <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50 border border-border/50">
+            {trader.avatarUrl ? (
+              <img src={trader.avatarUrl} alt={trader.name} className="w-10 h-10 rounded-full shrink-0" />
+            ) : (
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center text-sm font-bold text-primary shrink-0">
+                {trader.name.charAt(0)}
+              </div>
+            )}
+            <div className="min-w-0 flex-1">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="font-semibold text-sm text-foreground">{trader.name}</span>
+                <span className="text-xs text-muted-foreground font-mono">{trader.telegramChannel}</span>
+              </div>
+              {trader.description && (
+                <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">{trader.description}</p>
+              )}
+              <a
+                href={trader.telegramLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-xs text-primary hover:underline mt-1"
+              >
+                <ExternalLink className="w-3 h-3" />
+                {t('header.viewInTelegram')}
+              </a>
+            </div>
+          </div>
+
           <div className="space-y-2">
             <p className="text-muted-foreground text-sm">
               {language === 'ru' 
