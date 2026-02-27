@@ -35,6 +35,21 @@ export const TraderHeader = ({ trader }: TraderHeaderProps) => {
             <LanguageSwitcher />
           </div>
 
+          <div className="space-y-1">
+            <p className="text-muted-foreground text-sm">
+              {language === 'ru' 
+                ? 'Мы копируем каждый сигнал из Telegram и считаем его реальный P&L.'
+                : 'We copy every Telegram signal and calculate its real P&L.'
+              }
+            </p>
+            <p className="text-muted-foreground text-sm">
+              {language === 'ru' 
+                ? '📊 Отслеживание на бирже · 🔒 Без правок. Никогда.'
+                : '📊 Exchange-based tracking · 🔒 No edits. Ever.'
+              }
+            </p>
+          </div>
+
           {/* Trader Channel Info */}
           <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50 border border-border/50">
             {trader.avatarUrl ? (
@@ -62,21 +77,6 @@ export const TraderHeader = ({ trader }: TraderHeaderProps) => {
                 {t('header.viewInTelegram')}
               </a>
             </div>
-          </div>
-
-          <div className="space-y-2">
-            <p className="text-muted-foreground text-sm">
-              {language === 'ru' 
-                ? <>Мы отслеживаем каждую сделку от <span className="font-bold text-foreground">{telegramUsername}</span> и публикуем прозрачную P&L статистику.</>
-                : <>We track every trade from <span className="font-bold text-foreground">{telegramUsername}</span> and publish transparent P&L statistics.</>
-              }
-            </p>
-            <p className="text-muted-foreground text-sm">
-              {language === 'ru' 
-                ? '📊 Отслеживание на бирже · 🔒 Без правок. Никогда.'
-                : '📊 Exchange-based tracking · 🔒 No edits. Ever.'
-              }
-            </p>
           </div>
           <a
             href={trader.telegramLink}
