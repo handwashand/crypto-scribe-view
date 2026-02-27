@@ -29,7 +29,7 @@ export const TraderHeader = ({ trader }: TraderHeaderProps) => {
                 <h1 className="text-sm md:text-2xl font-bold text-foreground">
                   PNL Mama
                 </h1>
-                <p className="text-xs md:text-sm text-muted-foreground italic">Real signals. Real results.</p>
+                <p className="text-xs md:text-sm text-muted-foreground italic">Verified Signals. Transparent P&L.</p>
               </div>
             </div>
             <LanguageSwitcher />
