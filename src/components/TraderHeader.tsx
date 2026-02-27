@@ -35,20 +35,12 @@ export const TraderHeader = ({ trader }: TraderHeaderProps) => {
             <LanguageSwitcher />
           </div>
 
-          <div className="space-y-1">
-            <p className="text-muted-foreground text-sm">
-              {language === 'ru' 
-                ? 'Мы копируем каждый сигнал из Telegram и считаем его реальный P&L.'
-                : 'We copy every Telegram signal and calculate its real P&L.'
-              }
-            </p>
-            <p className="text-muted-foreground text-sm">
-              {language === 'ru' 
-                ? '📊 Отслеживание на бирже · 🔒 Без правок. Никогда.'
-                : '📊 Exchange-based tracking · 🔒 No edits. Ever.'
-              }
-            </p>
-          </div>
+          <p className="text-foreground text-sm md:text-base font-medium">
+            {language === 'ru' 
+              ? 'Мы копируем каждый сигнал из Telegram и считаем его реальный P&L.'
+              : 'We copy every Telegram signal and calculate its real P&L.'
+            }
+          </p>
 
           {/* Trader Channel Info */}
           <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50 border border-border/50">
